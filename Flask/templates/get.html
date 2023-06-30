@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		Flask Server Test
+	</head>
+	<body>
+		<h1> This is Main Page </h1>
+		<h3> get.html </h3>
+		<button id="Button" onclick="led()" >LED ON</button>
+
+		<button id="off" onclick="ledoff()">LED OFF</button>
+		<script>
+			function led(){
+				fetch('/led/on')
+					.then(response=> response.text())
+					.then(message => console.log(message))
+					.catch(error => console.error(error));
+					}
+		
+			function ledoff(){
+				fetch('/led/off')
+					.then(response => response.text())
+					.then(message => console.log(message))
+					.catch(error => console.error(error));
+			}
+		</script>
+		
+
+		
+	</body>
+</html>
